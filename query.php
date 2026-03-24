@@ -7,18 +7,36 @@ $args = array(
     'order'                  => 'DESC', // Also support: ASC
     'orderby'                => 'date', // Also support: none, rand, id, title, slug, modified, parent, menu_order, comment_count
     'tax_query'                    => [
-        'relation' => 'AND',
+        'relation' => 'OR',
         [
+            'relation' => 'AND',
+            [
             'taxonomy' => 'category',
             'field' => 'slug',
             'terms' => ['cat-1'],
             'operator' => 'IN'
-        ],
-        [
+            ],
+            [
             'taxonomy' => 'category',
             'field' => 'slug',
             'terms' => ['cat-2'],
             'operator' => 'IN'
+            ]
+        ],
+        [
+            'relation' => 'AND',
+            [
+            'taxonomy' => 'category',
+            'field' => 'slug',
+            'terms' => ['cat-2'],
+            'operator' => 'IN'
+            ],
+            [
+            'taxonomy' => 'category',
+            'field' => 'slug',
+            'terms' => ['cat-3'],
+            'operator' => 'IN'
+            ]
         ]
     ]
 );
