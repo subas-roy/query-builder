@@ -22,9 +22,16 @@ $args = array(
     //     ],
     // ],
     'meta_query' => [
+        'relation' => 'OR',
         [
         'key' => 'price',
         'value' => 15,
+        'compare' => '==',
+        'type' => 'NUMERIC'
+        ],
+        [
+        'key' => 'price',
+        'value' => 32,
         'compare' => '==',
         'type' => 'NUMERIC'
         ]
