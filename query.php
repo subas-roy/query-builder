@@ -6,37 +6,27 @@ $args = array(
     'posts_per_page'         => -1, // use -1 for all post
     'order'                  => 'DESC', // Also support: ASC
     'orderby'                => 'date', // Also support: none, rand, id, title, slug, modified, parent, menu_order, comment_count
-    'tax_query'                    => [
-        'relation' => 'OR',
+    // 'tax_query'                    => [
+    //     'relation' => 'OR',
+    //     [
+    //         'taxonomy' => 'category',
+    //         'field' => 'slug',
+    //         'terms' => ['cat-1'],
+    //         'operator' => 'IN'
+    //     ],
+    //     [
+    //         'taxonomy' => 'category',
+    //         'field' => 'slug',
+    //         'terms' => ['cat-2'],
+    //         'operator' => 'IN'
+    //     ],
+    // ],
+    'meta_query' => [
         [
-            'relation' => 'AND',
-            [
-            'taxonomy' => 'category',
-            'field' => 'slug',
-            'terms' => ['cat-1'],
-            'operator' => 'IN'
-            ],
-            [
-            'taxonomy' => 'category',
-            'field' => 'slug',
-            'terms' => ['cat-2'],
-            'operator' => 'IN'
-            ]
-        ],
-        [
-            'relation' => 'AND',
-            [
-            'taxonomy' => 'category',
-            'field' => 'slug',
-            'terms' => ['cat-2'],
-            'operator' => 'IN'
-            ],
-            [
-            'taxonomy' => 'category',
-            'field' => 'slug',
-            'terms' => ['cat-3'],
-            'operator' => 'IN'
-            ]
+        'key' => 'price',
+        'value' => 15,
+        'compare' => '==',
+        'type' => 'NUMERIC'
         ]
     ]
 );
